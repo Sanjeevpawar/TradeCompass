@@ -1,0 +1,84 @@
+{
+  "valid": true,
+  "config": {
+    "initial_capital": 100000.0,
+    "risk_per_trade_pct": 1.0,
+    "min_signal_score": 70,
+    "min_rr": 1.5,
+    "max_bars_in_trade": 12,
+    "min_delta": 0.45,
+    "max_delta": 0.65,
+    "target_delta": 0.55,
+    "max_spread_pct": 2.0,
+    "require_spread_data": true,
+    "max_premium": 500.0,
+    "min_volume": 1,
+    "min_dte": 1,
+    "max_dte": 14,
+    "lot_size": 65,
+    "slippage_pct": 0.05,
+    "transaction_cost_pct": 0.02,
+    "require_full_horizon": true
+  },
+  "data_source": "historical_option_bars",
+  "data_format": "phase9a_fixed_contracts",
+  "metrics": {
+    "initial_capital": 100000.0,
+    "ending_capital": 100000.0,
+    "net_pnl": 0.0,
+    "total_trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate_pct": 0.0,
+    "expectancy_per_trade": 0.0,
+    "profit_factor": 0.0,
+    "max_drawdown_pct": 0.0,
+    "avg_r": 0.0,
+    "target_exits": 0,
+    "stop_exits": 0,
+    "time_exits": 0,
+    "skipped_setup_counts": {
+      "no_contract": 117
+    },
+    "setup_stats": {}
+  },
+  "trades": [],
+  "data_note": "Research-only fixed-contract backtest. Dhan rolling historical data may contain derived expiry/Delta and may lack bid/ask; results require independent validation and out-of-sample/walk-forward testing before any real-money use.",
+  "adapter_report": {
+    "status": "PASS",
+    "input": {
+      "file": "data\\dhan_samples\\nifty_fixed_contracts.csv",
+      "rows": 12932
+    },
+    "output": {
+      "bars": 10578,
+      "rejected": {
+        "not_reconstruction_eligible": 2354
+      }
+    },
+    "identity": {
+      "DERIVED": 10578
+    },
+    "data_availability": {
+      "delta_rows": 10009,
+      "spread_rows": 0,
+      "spread_available_pct": 0.0
+    },
+    "research_policy": {
+      "fixed_contract_only": true,
+      "continuous_contract_only": true,
+      "derived_identity_preserved": true,
+      "missing_bid_ask_not_fabricated": true,
+      "missing_delta_not_fabricated": true
+    }
+  },
+  "research_gate": {
+    "status": "RESEARCH_ONLY",
+    "fixed_contract_input": true,
+    "continuous_contract_filter": true,
+    "full_horizon_required": true,
+    "spread_data_required": true,
+    "missing_spread_allowed": false,
+    "production_live_trading": false
+  }
+}

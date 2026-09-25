@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "rows": {
+    "call": 308,
+    "put": 308,
+    "underlying": 300,
+    "combined": 616,
+    "eligible": 599,
+    "excluded": 17
+  },
+  "identity": {
+    "DERIVED": 616
+  },
+  "option_types": {
+    "CE": 308,
+    "PE": 308
+  },
+  "expiry_segments": {
+    "2026-09-08": 150,
+    "2026-09-15": 466
+  },
+  "exclusion_reasons": {
+    "missing_model_delta": 4,
+    "missing_exact_underlying_timestamp": 16
+  },
+  "data_policy": {
+    "timestamp_join": "exact",
+    "missing_underlying": "exclude",
+    "missing_values": "exclude",
+    "contract_identity": "derived identity is retained and explicitly labelled",
+    "lookahead": "builder only joins fields available at the same timestamp; no future fill"
+  },
+  "backtest_gate": {
+    "allowed": false,
+    "reason": "Phase 8.6 builds a clean research dataset. Production historical backtesting remains gated until contract identity policy and dataset quality are explicitly approved."
+  },
+  "output": "data/dhan_samples/nifty_historical_research_dataset.csv",
+  "report": "data/dhan_samples/historical_dataset_report.json"
+}

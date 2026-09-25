@@ -1,0 +1,1978 @@
+{
+  "status": "PASS",
+  "policy": {
+    "contract_key": "same expiry + same strike + same option type",
+    "rolling_strike_policy": "never switch strike inside a fixed contract series",
+    "missing_option_bars": "retain gap; never forward-fill prices",
+    "overnight_gaps": "not treated as missing intraday bars",
+    "identity": "derived identity remains explicitly labelled",
+    "production_backtest": "not approved by Phase 9A"
+  },
+  "input": {
+    "rows_received": 12932,
+    "rows_normalized": 12932,
+    "rows_rejected": 0,
+    "files": [
+      "data\\dhan_samples\\nifty_options_band_call_enriched.csv",
+      "data\\dhan_samples\\nifty_options_band_put_enriched.csv"
+    ]
+  },
+  "contracts": {
+    "count": 102,
+    "continuity": {
+      "GAPPED": 28,
+      "CONTINUOUS": 74
+    },
+    "identity": {
+      "DERIVED": 102
+    },
+    "reconstruction_eligible": 74
+  },
+  "expected_interval_minutes": 5,
+  "contract_summaries": [
+    {
+      "contract_key": "2026-09-08|23450|CE",
+      "expiry": "2026-09-08",
+      "strike": 23450.0,
+      "option_type": "CE",
+      "start": "2026-09-01T14:05:00+05:30",
+      "end": "2026-09-01T15:05:00+05:30",
+      "rows": 8,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 2,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T14:20:00+05:30",
+          "to": "2026-09-01T14:35:00+05:30",
+          "gap_minutes": 15.0,
+          "missing_intervals": 2
+        },
+        {
+          "from": "2026-09-01T14:45:00+05:30",
+          "to": "2026-09-01T15:05:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|23450|PE",
+      "expiry": "2026-09-08",
+      "strike": 23450.0,
+      "option_type": "PE",
+      "start": "2026-09-01T14:05:00+05:30",
+      "end": "2026-09-01T15:05:00+05:30",
+      "rows": 8,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 2,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T14:20:00+05:30",
+          "to": "2026-09-01T14:35:00+05:30",
+          "gap_minutes": 15.0,
+          "missing_intervals": 2
+        },
+        {
+          "from": "2026-09-01T14:45:00+05:30",
+          "to": "2026-09-01T15:05:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|23500|CE",
+      "expiry": "2026-09-08",
+      "strike": 23500.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:45:00+05:30",
+      "end": "2026-09-01T15:20:00+05:30",
+      "rows": 23,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 1,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T09:55:00+05:30",
+          "to": "2026-09-01T13:45:00+05:30",
+          "gap_minutes": 230.0,
+          "missing_intervals": 45
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|23500|PE",
+      "expiry": "2026-09-08",
+      "strike": 23500.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:45:00+05:30",
+      "end": "2026-09-01T15:20:00+05:30",
+      "rows": 23,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 1,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T09:55:00+05:30",
+          "to": "2026-09-01T13:45:00+05:30",
+          "gap_minutes": 230.0,
+          "missing_intervals": 45
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|23550|CE",
+      "expiry": "2026-09-08",
+      "strike": 23550.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 47,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 1,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T10:45:00+05:30",
+          "to": "2026-09-01T13:10:00+05:30",
+          "gap_minutes": 145.0,
+          "missing_intervals": 28
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|23550|PE",
+      "expiry": "2026-09-08",
+      "strike": 23550.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 47,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 1,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T10:45:00+05:30",
+          "to": "2026-09-01T13:10:00+05:30",
+          "gap_minutes": 145.0,
+          "missing_intervals": 28
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|23600|CE",
+      "expiry": "2026-09-08",
+      "strike": 23600.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 72,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 2,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T11:20:00+05:30",
+          "to": "2026-09-01T11:35:00+05:30",
+          "gap_minutes": 15.0,
+          "missing_intervals": 2
+        },
+        {
+          "from": "2026-09-01T12:00:00+05:30",
+          "to": "2026-09-01T12:10:00+05:30",
+          "gap_minutes": 10.0,
+          "missing_intervals": 1
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|23600|PE",
+      "expiry": "2026-09-08",
+      "strike": 23600.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 72,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 2,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T11:20:00+05:30",
+          "to": "2026-09-01T11:35:00+05:30",
+          "gap_minutes": 15.0,
+          "missing_intervals": 2
+        },
+        {
+          "from": "2026-09-01T12:00:00+05:30",
+          "to": "2026-09-01T12:10:00+05:30",
+          "gap_minutes": 10.0,
+          "missing_intervals": 1
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|23650|CE",
+      "expiry": "2026-09-08",
+      "strike": 23650.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23650|PE",
+      "expiry": "2026-09-08",
+      "strike": 23650.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23700|CE",
+      "expiry": "2026-09-08",
+      "strike": 23700.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23700|PE",
+      "expiry": "2026-09-08",
+      "strike": 23700.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23750|CE",
+      "expiry": "2026-09-08",
+      "strike": 23750.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23750|PE",
+      "expiry": "2026-09-08",
+      "strike": 23750.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23800|CE",
+      "expiry": "2026-09-08",
+      "strike": 23800.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23800|PE",
+      "expiry": "2026-09-08",
+      "strike": 23800.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23850|CE",
+      "expiry": "2026-09-08",
+      "strike": 23850.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23850|PE",
+      "expiry": "2026-09-08",
+      "strike": 23850.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23900|CE",
+      "expiry": "2026-09-08",
+      "strike": 23900.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23900|PE",
+      "expiry": "2026-09-08",
+      "strike": 23900.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23950|CE",
+      "expiry": "2026-09-08",
+      "strike": 23950.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|23950|PE",
+      "expiry": "2026-09-08",
+      "strike": 23950.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24000|CE",
+      "expiry": "2026-09-08",
+      "strike": 24000.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24000|PE",
+      "expiry": "2026-09-08",
+      "strike": 24000.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24050|CE",
+      "expiry": "2026-09-08",
+      "strike": 24050.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24050|PE",
+      "expiry": "2026-09-08",
+      "strike": 24050.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24100|CE",
+      "expiry": "2026-09-08",
+      "strike": 24100.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24100|PE",
+      "expiry": "2026-09-08",
+      "strike": 24100.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24150|CE",
+      "expiry": "2026-09-08",
+      "strike": 24150.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24150|PE",
+      "expiry": "2026-09-08",
+      "strike": 24150.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24200|CE",
+      "expiry": "2026-09-08",
+      "strike": 24200.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24200|PE",
+      "expiry": "2026-09-08",
+      "strike": 24200.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24250|CE",
+      "expiry": "2026-09-08",
+      "strike": 24250.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24250|PE",
+      "expiry": "2026-09-08",
+      "strike": 24250.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24300|CE",
+      "expiry": "2026-09-08",
+      "strike": 24300.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24300|PE",
+      "expiry": "2026-09-08",
+      "strike": 24300.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24350|CE",
+      "expiry": "2026-09-08",
+      "strike": 24350.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24350|PE",
+      "expiry": "2026-09-08",
+      "strike": 24350.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24400|CE",
+      "expiry": "2026-09-08",
+      "strike": 24400.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24400|PE",
+      "expiry": "2026-09-08",
+      "strike": 24400.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24450|CE",
+      "expiry": "2026-09-08",
+      "strike": 24450.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24450|PE",
+      "expiry": "2026-09-08",
+      "strike": 24450.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 75,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24500|CE",
+      "expiry": "2026-09-08",
+      "strike": 24500.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 67,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 3,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T14:00:00+05:30",
+          "to": "2026-09-01T14:25:00+05:30",
+          "gap_minutes": 25.0,
+          "missing_intervals": 4
+        },
+        {
+          "from": "2026-09-01T14:30:00+05:30",
+          "to": "2026-09-01T14:50:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        },
+        {
+          "from": "2026-09-01T15:00:00+05:30",
+          "to": "2026-09-01T15:10:00+05:30",
+          "gap_minutes": 10.0,
+          "missing_intervals": 1
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|24500|PE",
+      "expiry": "2026-09-08",
+      "strike": 24500.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 67,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 3,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T14:00:00+05:30",
+          "to": "2026-09-01T14:25:00+05:30",
+          "gap_minutes": 25.0,
+          "missing_intervals": 4
+        },
+        {
+          "from": "2026-09-01T14:30:00+05:30",
+          "to": "2026-09-01T14:50:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        },
+        {
+          "from": "2026-09-01T15:00:00+05:30",
+          "to": "2026-09-01T15:10:00+05:30",
+          "gap_minutes": 10.0,
+          "missing_intervals": 1
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|24550|CE",
+      "expiry": "2026-09-08",
+      "strike": 24550.0,
+      "option_type": "CE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 52,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 2,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T09:40:00+05:30",
+          "to": "2026-09-01T10:00:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        },
+        {
+          "from": "2026-09-01T13:40:00+05:30",
+          "to": "2026-09-01T15:25:00+05:30",
+          "gap_minutes": 105.0,
+          "missing_intervals": 20
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|24550|PE",
+      "expiry": "2026-09-08",
+      "strike": 24550.0,
+      "option_type": "PE",
+      "start": "2026-09-01T09:15:00+05:30",
+      "end": "2026-09-01T15:25:00+05:30",
+      "rows": 52,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 2,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T09:40:00+05:30",
+          "to": "2026-09-01T10:00:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        },
+        {
+          "from": "2026-09-01T13:40:00+05:30",
+          "to": "2026-09-01T15:25:00+05:30",
+          "gap_minutes": 105.0,
+          "missing_intervals": 20
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|24600|CE",
+      "expiry": "2026-09-08",
+      "strike": 24600.0,
+      "option_type": "CE",
+      "start": "2026-09-01T10:50:00+05:30",
+      "end": "2026-09-01T13:05:00+05:30",
+      "rows": 28,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24600|PE",
+      "expiry": "2026-09-08",
+      "strike": 24600.0,
+      "option_type": "PE",
+      "start": "2026-09-01T10:50:00+05:30",
+      "end": "2026-09-01T13:05:00+05:30",
+      "rows": 28,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-08|24650|CE",
+      "expiry": "2026-09-08",
+      "strike": 24650.0,
+      "option_type": "CE",
+      "start": "2026-09-01T11:25:00+05:30",
+      "end": "2026-09-01T12:05:00+05:30",
+      "rows": 3,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 1,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T11:30:00+05:30",
+          "to": "2026-09-01T12:05:00+05:30",
+          "gap_minutes": 35.0,
+          "missing_intervals": 6
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-08|24650|PE",
+      "expiry": "2026-09-08",
+      "strike": 24650.0,
+      "option_type": "PE",
+      "start": "2026-09-01T11:25:00+05:30",
+      "end": "2026-09-01T12:05:00+05:30",
+      "rows": 3,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 1,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-01T11:30:00+05:30",
+          "to": "2026-09-01T12:05:00+05:30",
+          "gap_minutes": 35.0,
+          "missing_intervals": 6
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|23300|CE",
+      "expiry": "2026-09-15",
+      "strike": 23300.0,
+      "option_type": "CE",
+      "start": "2026-09-02T09:15:00+05:30",
+      "end": "2026-09-02T12:05:00+05:30",
+      "rows": 13,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 2,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-02T09:30:00+05:30",
+          "to": "2026-09-02T11:20:00+05:30",
+          "gap_minutes": 110.0,
+          "missing_intervals": 21
+        },
+        {
+          "from": "2026-09-02T11:45:00+05:30",
+          "to": "2026-09-02T11:55:00+05:30",
+          "gap_minutes": 10.0,
+          "missing_intervals": 1
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|23300|PE",
+      "expiry": "2026-09-15",
+      "strike": 23300.0,
+      "option_type": "PE",
+      "start": "2026-09-02T09:15:00+05:30",
+      "end": "2026-09-02T12:05:00+05:30",
+      "rows": 12,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 2,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-02T09:25:00+05:30",
+          "to": "2026-09-02T11:20:00+05:30",
+          "gap_minutes": 115.0,
+          "missing_intervals": 22
+        },
+        {
+          "from": "2026-09-02T11:45:00+05:30",
+          "to": "2026-09-02T11:55:00+05:30",
+          "gap_minutes": 10.0,
+          "missing_intervals": 1
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|23350|CE",
+      "expiry": "2026-09-15",
+      "strike": 23350.0,
+      "option_type": "CE",
+      "start": "2026-09-02T09:40:00+05:30",
+      "end": "2026-09-03T15:35:00+05:30",
+      "rows": 54,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 4,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-02T10:15:00+05:30",
+          "to": "2026-09-02T10:35:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        },
+        {
+          "from": "2026-09-02T13:15:00+05:30",
+          "to": "2026-09-02T13:35:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        },
+        {
+          "from": "2026-09-02T14:00:00+05:30",
+          "to": "2026-09-02T14:20:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        },
+        {
+          "from": "2026-09-02T14:20:00+05:30",
+          "to": "2026-09-02T14:55:00+05:30",
+          "gap_minutes": 35.0,
+          "missing_intervals": 6
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|23350|PE",
+      "expiry": "2026-09-15",
+      "strike": 23350.0,
+      "option_type": "PE",
+      "start": "2026-09-02T09:15:00+05:30",
+      "end": "2026-09-03T15:35:00+05:30",
+      "rows": 59,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 4,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-02T10:15:00+05:30",
+          "to": "2026-09-02T10:35:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        },
+        {
+          "from": "2026-09-02T13:15:00+05:30",
+          "to": "2026-09-02T13:35:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        },
+        {
+          "from": "2026-09-02T14:00:00+05:30",
+          "to": "2026-09-02T14:20:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        },
+        {
+          "from": "2026-09-02T14:20:00+05:30",
+          "to": "2026-09-02T14:55:00+05:30",
+          "gap_minutes": 35.0,
+          "missing_intervals": 6
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|23400|CE",
+      "expiry": "2026-09-15",
+      "strike": 23400.0,
+      "option_type": "CE",
+      "start": "2026-09-02T09:15:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 123,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 3,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-03T13:05:00+05:30",
+          "to": "2026-09-03T13:20:00+05:30",
+          "gap_minutes": 15.0,
+          "missing_intervals": 2
+        },
+        {
+          "from": "2026-09-03T13:25:00+05:30",
+          "to": "2026-09-03T13:35:00+05:30",
+          "gap_minutes": 10.0,
+          "missing_intervals": 1
+        },
+        {
+          "from": "2026-09-04T09:40:00+05:30",
+          "to": "2026-09-04T15:25:00+05:30",
+          "gap_minutes": 345.0,
+          "missing_intervals": 68
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|23400|PE",
+      "expiry": "2026-09-15",
+      "strike": 23400.0,
+      "option_type": "PE",
+      "start": "2026-09-02T09:15:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 123,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 3,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-03T13:05:00+05:30",
+          "to": "2026-09-03T13:20:00+05:30",
+          "gap_minutes": 15.0,
+          "missing_intervals": 2
+        },
+        {
+          "from": "2026-09-03T13:25:00+05:30",
+          "to": "2026-09-03T13:35:00+05:30",
+          "gap_minutes": 10.0,
+          "missing_intervals": 1
+        },
+        {
+          "from": "2026-09-04T09:40:00+05:30",
+          "to": "2026-09-04T15:25:00+05:30",
+          "gap_minutes": 345.0,
+          "missing_intervals": 68
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|23450|CE",
+      "expiry": "2026-09-15",
+      "strike": 23450.0,
+      "option_type": "CE",
+      "start": "2026-09-02T09:15:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 208,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 2,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-03T09:20:00+05:30",
+          "to": "2026-09-03T10:35:00+05:30",
+          "gap_minutes": 75.0,
+          "missing_intervals": 14
+        },
+        {
+          "from": "2026-09-04T11:10:00+05:30",
+          "to": "2026-09-04T12:00:00+05:30",
+          "gap_minutes": 50.0,
+          "missing_intervals": 9
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|23450|PE",
+      "expiry": "2026-09-15",
+      "strike": 23450.0,
+      "option_type": "PE",
+      "start": "2026-09-02T09:15:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 208,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 2,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-03T09:20:00+05:30",
+          "to": "2026-09-03T10:35:00+05:30",
+          "gap_minutes": 75.0,
+          "missing_intervals": 14
+        },
+        {
+          "from": "2026-09-04T11:10:00+05:30",
+          "to": "2026-09-04T12:00:00+05:30",
+          "gap_minutes": 50.0,
+          "missing_intervals": 9
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|23500|CE",
+      "expiry": "2026-09-15",
+      "strike": 23500.0,
+      "option_type": "CE",
+      "start": "2026-09-02T09:15:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 231,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23500|PE",
+      "expiry": "2026-09-15",
+      "strike": 23500.0,
+      "option_type": "PE",
+      "start": "2026-09-02T09:15:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 231,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23550|CE",
+      "expiry": "2026-09-15",
+      "strike": 23550.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23550|PE",
+      "expiry": "2026-09-15",
+      "strike": 23550.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23600|CE",
+      "expiry": "2026-09-15",
+      "strike": 23600.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23600|PE",
+      "expiry": "2026-09-15",
+      "strike": 23600.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23650|CE",
+      "expiry": "2026-09-15",
+      "strike": 23650.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23650|PE",
+      "expiry": "2026-09-15",
+      "strike": 23650.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23700|CE",
+      "expiry": "2026-09-15",
+      "strike": 23700.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23700|PE",
+      "expiry": "2026-09-15",
+      "strike": 23700.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23750|CE",
+      "expiry": "2026-09-15",
+      "strike": 23750.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23750|PE",
+      "expiry": "2026-09-15",
+      "strike": 23750.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23800|CE",
+      "expiry": "2026-09-15",
+      "strike": 23800.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23800|PE",
+      "expiry": "2026-09-15",
+      "strike": 23800.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23850|CE",
+      "expiry": "2026-09-15",
+      "strike": 23850.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23850|PE",
+      "expiry": "2026-09-15",
+      "strike": 23850.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23900|CE",
+      "expiry": "2026-09-15",
+      "strike": 23900.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23900|PE",
+      "expiry": "2026-09-15",
+      "strike": 23900.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23950|CE",
+      "expiry": "2026-09-15",
+      "strike": 23950.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|23950|PE",
+      "expiry": "2026-09-15",
+      "strike": 23950.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24000|CE",
+      "expiry": "2026-09-15",
+      "strike": 24000.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24000|PE",
+      "expiry": "2026-09-15",
+      "strike": 24000.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24050|CE",
+      "expiry": "2026-09-15",
+      "strike": 24050.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24050|PE",
+      "expiry": "2026-09-15",
+      "strike": 24050.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24100|CE",
+      "expiry": "2026-09-15",
+      "strike": 24100.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24100|PE",
+      "expiry": "2026-09-15",
+      "strike": 24100.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24150|CE",
+      "expiry": "2026-09-15",
+      "strike": 24150.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24150|PE",
+      "expiry": "2026-09-15",
+      "strike": 24150.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24200|CE",
+      "expiry": "2026-09-15",
+      "strike": 24200.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24200|PE",
+      "expiry": "2026-09-15",
+      "strike": 24200.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24250|CE",
+      "expiry": "2026-09-15",
+      "strike": 24250.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24250|PE",
+      "expiry": "2026-09-15",
+      "strike": 24250.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24300|CE",
+      "expiry": "2026-09-15",
+      "strike": 24300.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24300|PE",
+      "expiry": "2026-09-15",
+      "strike": 24300.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 233,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24350|CE",
+      "expiry": "2026-09-15",
+      "strike": 24350.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 221,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 2,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-02T11:15:00+05:30",
+          "to": "2026-09-02T11:50:00+05:30",
+          "gap_minutes": 35.0,
+          "missing_intervals": 6
+        },
+        {
+          "from": "2026-09-02T11:50:00+05:30",
+          "to": "2026-09-02T12:10:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|24350|PE",
+      "expiry": "2026-09-15",
+      "strike": 24350.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 221,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 2,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-02T11:15:00+05:30",
+          "to": "2026-09-02T11:50:00+05:30",
+          "gap_minutes": 35.0,
+          "missing_intervals": 6
+        },
+        {
+          "from": "2026-09-02T11:50:00+05:30",
+          "to": "2026-09-02T12:10:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|24400|CE",
+      "expiry": "2026-09-15",
+      "strike": 24400.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 174,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 4,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-02T10:30:00+05:30",
+          "to": "2026-09-02T13:20:00+05:30",
+          "gap_minutes": 170.0,
+          "missing_intervals": 33
+        },
+        {
+          "from": "2026-09-02T13:30:00+05:30",
+          "to": "2026-09-02T14:05:00+05:30",
+          "gap_minutes": 35.0,
+          "missing_intervals": 6
+        },
+        {
+          "from": "2026-09-02T14:15:00+05:30",
+          "to": "2026-09-02T14:25:00+05:30",
+          "gap_minutes": 10.0,
+          "missing_intervals": 1
+        },
+        {
+          "from": "2026-09-02T14:50:00+05:30",
+          "to": "2026-09-02T15:10:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|24400|PE",
+      "expiry": "2026-09-15",
+      "strike": 24400.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:35:00+05:30",
+      "rows": 174,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 4,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-02T10:30:00+05:30",
+          "to": "2026-09-02T13:20:00+05:30",
+          "gap_minutes": 170.0,
+          "missing_intervals": 33
+        },
+        {
+          "from": "2026-09-02T13:30:00+05:30",
+          "to": "2026-09-02T14:05:00+05:30",
+          "gap_minutes": 35.0,
+          "missing_intervals": 6
+        },
+        {
+          "from": "2026-09-02T14:15:00+05:30",
+          "to": "2026-09-02T14:25:00+05:30",
+          "gap_minutes": 10.0,
+          "missing_intervals": 1
+        },
+        {
+          "from": "2026-09-02T14:50:00+05:30",
+          "to": "2026-09-02T15:10:00+05:30",
+          "gap_minutes": 20.0,
+          "missing_intervals": 3
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|24450|CE",
+      "expiry": "2026-09-15",
+      "strike": 24450.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:20:00+05:30",
+      "rows": 110,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 3,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-03T12:10:00+05:30",
+          "to": "2026-09-03T13:10:00+05:30",
+          "gap_minutes": 60.0,
+          "missing_intervals": 11
+        },
+        {
+          "from": "2026-09-03T13:15:00+05:30",
+          "to": "2026-09-03T13:30:00+05:30",
+          "gap_minutes": 15.0,
+          "missing_intervals": 2
+        },
+        {
+          "from": "2026-09-04T09:15:00+05:30",
+          "to": "2026-09-04T09:45:00+05:30",
+          "gap_minutes": 30.0,
+          "missing_intervals": 5
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|24450|PE",
+      "expiry": "2026-09-15",
+      "strike": 24450.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T15:20:00+05:30",
+      "rows": 110,
+      "continuity": "GAPPED",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 3,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": false,
+      "gaps": [
+        {
+          "from": "2026-09-03T12:10:00+05:30",
+          "to": "2026-09-03T13:10:00+05:30",
+          "gap_minutes": 60.0,
+          "missing_intervals": 11
+        },
+        {
+          "from": "2026-09-03T13:15:00+05:30",
+          "to": "2026-09-03T13:30:00+05:30",
+          "gap_minutes": 15.0,
+          "missing_intervals": 2
+        },
+        {
+          "from": "2026-09-04T09:15:00+05:30",
+          "to": "2026-09-04T09:45:00+05:30",
+          "gap_minutes": 30.0,
+          "missing_intervals": 5
+        }
+      ]
+    },
+    {
+      "contract_key": "2026-09-15|24500|CE",
+      "expiry": "2026-09-15",
+      "strike": 24500.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T11:55:00+05:30",
+      "rows": 25,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24500|PE",
+      "expiry": "2026-09-15",
+      "strike": 24500.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-04T11:55:00+05:30",
+      "rows": 25,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24550|CE",
+      "expiry": "2026-09-15",
+      "strike": 24550.0,
+      "option_type": "CE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-01T15:35:00+05:30",
+      "rows": 2,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    },
+    {
+      "contract_key": "2026-09-15|24550|PE",
+      "expiry": "2026-09-15",
+      "strike": 24550.0,
+      "option_type": "PE",
+      "start": "2026-09-01T15:30:00+05:30",
+      "end": "2026-09-01T15:35:00+05:30",
+      "rows": 2,
+      "continuity": "CONTINUOUS",
+      "identity_status": "DERIVED",
+      "same_day_gap_count": 0,
+      "duplicate_timestamp_count": 0,
+      "reconstruction_eligible": true,
+      "gaps": []
+    }
+  ],
+  "output": "data/dhan_samples/nifty_fixed_contracts.csv",
+  "report": "data/dhan_samples/fixed_contract_reconstruction_report.json"
+}

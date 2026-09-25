@@ -1,0 +1,77 @@
+# ============================================================
+# Secrets / environment
+# ============================================================
+.env
+.env.*
+!.env.example
+
+# ============================================================
+# Python
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# ============================================================
+# Testing / coverage
+# ============================================================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# ============================================================
+# IDE / editor
+# ============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ============================================================
+# OS
+# ============================================================
+.DS_Store
+Thumbs.db
+
+# ============================================================
+# TradeCompass generated/local data
+# ============================================================
+
+# Raw Dhan historical downloads
+data/dhan_history/raw/
+
+# Large reconstructed datasets
+data/dhan_history/reconstructed/*.csv
+
+# Generated reconstruction/validation reports
+data/dhan_history/reconstructed/*.json
+
+# Sample CSV datasets
+data/dhan_samples/*.csv
+
+# Local trading database
+data/live/*.db
+
+# ============================================================
+# Generated reports / local artifacts
+# ============================================================
+reports/
+artifacts/
+output/
+
+# ============================================================
+# Logs
+# ============================================================
+*.log
+
+# Temporary backup files
+*.phase12_backup

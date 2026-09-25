@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TradeCompass — Live Command Center</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:#f4f6f8;color:#17202a}
+header{background:#101820;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+header h1{margin:0;font-size:21px}.container{max-width:1400px;margin:auto;padding:22px}.muted{color:#6b7280;font-size:13px}
+.banner{background:#fff7ed;border:1px solid #fed7aa;padding:12px 14px;border-radius:10px;margin-bottom:16px}
+.market{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.06);margin-bottom:16px}.metric .label{color:#6b7280;font-size:12px;text-transform:uppercase}.metric .value{font-size:25px;font-weight:700;margin-top:5px}
+.approaches{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.approach{border:1px solid #e5e7eb;border-radius:11px;padding:15px}.approach h3{margin:0 0 10px;font-size:15px}.signal{font-size:23px;font-weight:800;margin:5px 0 12px}.row{display:flex;justify-content:space-between;gap:10px;margin:7px 0;font-size:13px}.evidence{margin-top:12px;padding-top:10px;border-top:1px solid #eee}.tag{display:inline-block;border:1px solid #ddd;border-radius:999px;padding:4px 8px;margin:3px;font-size:11px}.option{background:#f8fafc;border-radius:9px;padding:10px;margin-top:12px}.section-title{margin:0 0 12px}.status{font-weight:700;font-size:12px}.reason{font-size:12px;margin-top:8px;line-height:1.4}.refresh{border:0;border-radius:8px;padding:9px 13px;cursor:pointer}
+@media(max-width:1050px){.approaches{grid-template-columns:1fr 1fr}.market{grid-template-columns:1fr 1fr}}@media(max-width:600px){.approaches,.market{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<header><h1>TradeCompass — Live Command Center</h1><div><span id="status">Connecting…</span> <button class="refresh" onclick="loadLive()">Refresh</button></div></header>
+<div class="container">
+<div class="banner"><strong>READ-ONLY / PAPER OBSERVATION</strong><br><span class="muted">TradeCompass generates signals and risk levels. It does not place Dhan orders.</span></div>
+<div class="market">
+<div class="card metric"><div class="label">NIFTY</div><div id="spot" class="value">—</div></div>
+<div class="card metric"><div class="label">Last Completed Candle</div><div id="time" class="value" style="font-size:17px">—</div></div>
+<div class="card metric"><div class="label">Put/Call Interest</div><div id="pcr" class="value">—</div></div>
+<div class="card metric"><div class="label">Expiry</div><div id="expiry" class="value" style="font-size:17px">—</div></div>
+</div>
+<div class="card"><h2 class="section-title">Four Approaches</h2><div id="approaches" class="approaches"></div></div>
+<div class="card"><h2 class="section-title">Chain Evidence</h2><div id="chain"></div></div>
+</div>
+<script>
+function fmt(v){return v==null?'—':Number(v).toLocaleString('en-IN',{maximumFractionDigits:2})}
+function signalClass(s){return s==='BUY_CALL'?'BUY CALL':s==='BUY_PUT'?'BUY PUT':'WAIT'}
+function optionHtml(o){if(!o)return '<div class="muted">No qualifying option</div>';return `<div class="option"><strong>Suggested Option: ${fmt(o.strike)} ${o.option_type}</strong><div class="row"><span>LTP</span><strong>₹${fmt(o.ltp)}</strong></div><div class="row"><span>Delta</span><span>${fmt(o.delta)}</span></div><div class="row"><span>IV</span><span>${fmt(o.iv)}%</span></div><div class="row"><span>Spread</span><span>₹${fmt(o.spread)}</span></div></div>`}
+function approachCard(title,a){let reasons=(a.reasons||[]).map(x=>`<span class="tag">${x}</span>`).join('');return `<div class="approach"><h3>${title}</h3><div class="signal">${signalClass(a.signal)}</div><div class="row"><span>Score</span><strong>${fmt(a.score??a.evidence_score)}</strong></div>${a.setup?`<div class="row"><span>Setup</span><span>${a.setup}</span></div>`:''}${a.status?`<div class="row"><span>Chain status</span><span class="status">${a.status}</span></div>`:''}${a.reason?`<div class="reason">${a.reason}</div>`:''}${reasons?`<div class="evidence">${reasons}</div>`:''}${optionHtml(a.suggested_option)}${a.risk?`<div class="evidence"><div class="row"><span>Risk approved</span><strong>${a.risk.approved?'YES':'NO'}</strong></div><div class="row"><span>Entry / Stop / Target</span><span>₹${fmt(a.risk.entry)} / ₹${fmt(a.risk.stop)} / ₹${fmt(a.risk.target)}</span></div></div>`:''}</div>`}
+async function loadLive(){
+ try{const r=await fetch('/live/v1');const d=await r.json();document.getElementById('status').textContent=`${d.provider} • ${d.live_mode}`;document.getElementById('spot').textContent=fmt(d.market.spot);document.getElementById('time').textContent=d.timestamp_ist;document.getElementById('pcr').textContent=fmt(d.chain.pcr);document.getElementById('expiry').textContent=d.chain.expiry;const a=d.approaches;document.getElementById('approaches').innerHTML=approachCard('1. Technical',a.technical)+approachCard('2. Technical + Chain',a.technical_plus_chain)+approachCard('3. Chain Only',a.chain_only)+approachCard('4. Full TradeCompass',a.full_tradecompass);const c=d.chain;document.getElementById('chain').innerHTML=`<div class="row"><span>Call OI</span><strong>${fmt(c.call_oi)}</strong></div><div class="row"><span>Put OI</span><strong>${fmt(c.put_oi)}</strong></div><div class="row"><span>Call OI Change</span><strong>${fmt(c.call_oi_change)}</strong></div><div class="row"><span>Put OI Change</span><strong>${fmt(c.put_oi_change)}</strong></div><div class="row"><span>Call Resistance</span><strong>${fmt(c.call_oi_peak_strike)} (${fmt(c.call_resistance_distance)} pts)</strong></div><div class="row"><span>Put Support</span><strong>${fmt(c.put_oi_peak_strike)} (${fmt(c.put_support_distance)} pts)</strong></div><div class="row"><span>ATM Call IV / Put IV</span><strong>${fmt(c.atm_call_iv)}% / ${fmt(c.atm_put_iv)}%</strong></div><div class="row"><span>Data Quality</span><strong>${c.data_quality}</strong></div>`}
+ catch(e){document.getElementById('status').textContent='Live data unavailable';console.error(e)}}
+loadLive();setInterval(loadLive,30000);
+</script>
+</body></html>

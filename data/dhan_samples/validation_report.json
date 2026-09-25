@@ -1,0 +1,326 @@
+{
+  "status": "FAIL",
+  "rows_call": 308,
+  "rows_put": 308,
+  "paired_timestamps": 308,
+  "expiry_values_call": [
+    "2026-09-08",
+    "2026-09-15"
+  ],
+  "expiry_values_put": [
+    "2026-09-08",
+    "2026-09-15"
+  ],
+  "issues": [
+    {
+      "severity": "ERROR",
+      "code": "CALL_DTE_INCREASE",
+      "message": "DTE increased from 7 to 14",
+      "timestamp": "2026-09-01T15:30:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "CALL_MISSING_DELTA",
+      "message": "Missing model delta",
+      "timestamp": "2026-09-01T15:30:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "CALL_MISSING_DELTA",
+      "message": "Missing model delta",
+      "timestamp": "2026-09-01T15:35:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "PUT_MISSING_DELTA",
+      "message": "Missing model delta",
+      "timestamp": "2026-09-01T15:20:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "PUT_DTE_INCREASE",
+      "message": "DTE increased from 7 to 14",
+      "timestamp": "2026-09-01T15:30:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "PUT_MISSING_DELTA",
+      "message": "Missing model delta",
+      "timestamp": "2026-09-01T15:35:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "CALL_EXPIRY_NOT_CONSTANT",
+      "message": "Expected one derived expiry for this short sample, found ['2026-09-08', '2026-09-15']",
+      "timestamp": null
+    },
+    {
+      "severity": "ERROR",
+      "code": "PUT_EXPIRY_NOT_CONSTANT",
+      "message": "Expected one derived expiry for this short sample, found ['2026-09-08', '2026-09-15']",
+      "timestamp": null
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 24067.3 differs from underlying close 24064.75 by > 2 points",
+      "timestamp": "2026-09-01T10:30:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 24123.95 differs from underlying close 24121.65 by > 2 points",
+      "timestamp": "2026-09-01T11:15:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 24126.65 differs from underlying close 24124.55 by > 2 points",
+      "timestamp": "2026-09-01T11:30:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 24124.2 differs from underlying close 24121.3 by > 2 points",
+      "timestamp": "2026-09-01T12:00:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-01T15:30:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-01T15:35:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-02T15:30:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-02T15:35:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23966.5 differs from underlying close 23964.4 by > 2 points",
+      "timestamp": "2026-09-03T11:45:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23931.9 differs from underlying close 23928.85 by > 2 points",
+      "timestamp": "2026-09-03T12:05:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23909.2 differs from underlying close 23906.15 by > 2 points",
+      "timestamp": "2026-09-03T12:20:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23911.45 differs from underlying close 23909.05 by > 2 points",
+      "timestamp": "2026-09-03T12:40:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23921.15 differs from underlying close 23918.15 by > 2 points",
+      "timestamp": "2026-09-03T13:55:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-03T15:30:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-03T15:35:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23948.25 differs from underlying close 23945.9 by > 2 points",
+      "timestamp": "2026-09-04T10:05:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 24001.3 differs from underlying close 23999.05 by > 2 points",
+      "timestamp": "2026-09-04T11:35:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23948.45 differs from underlying close 23946.35 by > 2 points",
+      "timestamp": "2026-09-04T13:10:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23942.2 differs from underlying close 23939.15 by > 2 points",
+      "timestamp": "2026-09-04T13:55:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-04T15:30:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-04T15:35:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 24067.3 differs from underlying close 24064.75 by > 2 points",
+      "timestamp": "2026-09-01T10:30:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 24123.95 differs from underlying close 24121.65 by > 2 points",
+      "timestamp": "2026-09-01T11:15:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 24126.65 differs from underlying close 24124.55 by > 2 points",
+      "timestamp": "2026-09-01T11:30:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 24124.2 differs from underlying close 24121.3 by > 2 points",
+      "timestamp": "2026-09-01T12:00:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-01T15:30:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-01T15:35:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-02T15:30:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-02T15:35:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23966.5 differs from underlying close 23964.4 by > 2 points",
+      "timestamp": "2026-09-03T11:45:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23931.9 differs from underlying close 23928.85 by > 2 points",
+      "timestamp": "2026-09-03T12:05:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23909.2 differs from underlying close 23906.15 by > 2 points",
+      "timestamp": "2026-09-03T12:20:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23911.45 differs from underlying close 23909.05 by > 2 points",
+      "timestamp": "2026-09-03T12:40:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23921.15 differs from underlying close 23918.15 by > 2 points",
+      "timestamp": "2026-09-03T13:55:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-03T15:30:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-03T15:35:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23948.25 differs from underlying close 23945.9 by > 2 points",
+      "timestamp": "2026-09-04T10:05:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 24001.3 differs from underlying close 23999.05 by > 2 points",
+      "timestamp": "2026-09-04T11:35:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23948.45 differs from underlying close 23946.35 by > 2 points",
+      "timestamp": "2026-09-04T13:10:00+05:30"
+    },
+    {
+      "severity": "WARN",
+      "code": "SPOT_CLOSE_DIFFERENCE",
+      "message": "Option spot 23942.2 differs from underlying close 23939.15 by > 2 points",
+      "timestamp": "2026-09-04T13:55:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-04T15:30:00+05:30"
+    },
+    {
+      "severity": "ERROR",
+      "code": "UNDERLYING_TIMESTAMP_MISSING",
+      "message": "Option timestamp missing from underlying sample",
+      "timestamp": "2026-09-04T15:35:00+05:30"
+    }
+  ],
+  "checks": {
+    "call_put_timestamp_pairing": true,
+    "call_put_identity_match": true,
+    "delta_ranges": true,
+    "delta_parity": true,
+    "dte_non_increasing": false,
+    "timestamp_order": true,
+    "expiry_consistency": false,
+    "underlying_alignment": false
+  }
+}

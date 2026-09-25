@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TradeCompass</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, Arial, sans-serif; background:#f4f6f8; color:#17202a; }
+    header { background:#101820; color:white; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; }
+    header h1 { margin:0; font-size:21px; }
+    .source { font-size:12px; opacity:.8; }
+    .container { max-width:1100px; margin:auto; padding:22px; }
+    .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .card { background:white; border-radius:12px; padding:18px; box-shadow:0 2px 10px rgba(0,0,0,.06); margin-bottom:16px; }
+    .metric .label { color:#6b7280; font-size:12px; text-transform:uppercase; }
+    .metric .value { font-size:25px; font-weight:700; margin-top:5px; }
+    h2,h3 { margin-top:0; }
+    .status { display:inline-block; padding:5px 9px; border-radius:999px; font-size:12px; font-weight:700; background:#eef2f7; }
+    .candidate-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .candidate { border:1px solid #e5e7eb; border-radius:10px; padding:14px; }
+    .candidate strong { font-size:20px; }
+    .row { display:flex; justify-content:space-between; margin:7px 0; font-size:14px; }
+    .muted { color:#6b7280; }
+    button { background:#2563eb; color:white; border:0; border-radius:8px; padding:10px 16px; cursor:pointer; }
+    button:hover { opacity:.9; }
+    .warning { background:#fff7ed; border:1px solid #fed7aa; padding:12px; border-radius:9px; }
+    @media(max-width:800px){ .grid,.candidate-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:560px){ .grid,.candidate-grid{grid-template-columns:1fr;} header{gap:10px;flex-direction:column;align-items:flex-start;} }
+  </style>
+</head>
+<body>
+<header>
+  <h1>📈 TradeCompass</h1>
+  <div><span id="source" class="source">Loading market data…</span> &nbsp; <button onclick="loadMarket()">Refresh</button></div>
+</header>
+<div class="container">
+  <div class="card warning">
+    <strong>Phase 2 — Market Data Foundation</strong><br>
+    <span class="muted">Read-only market data. No live orders are placed by this dashboard.</span>
+  </div>
+
+  <div class="grid">
+    <div class="card metric"><div class="label">NIFTY</div><div id="spot" class="value">—</div></div>
+    <div class="card metric"><div class="label">ATM Strike</div><div id="atm" class="value">—</div></div>
+    <div class="card metric"><div class="label">PCR</div><div id="pcr" class="value">—</div></div>
+    <div class="card metric"><div class="label">Expiry</div><div id="expiry" class="value" style="font-size:18px">—</div></div>
+  </div>
+
+  <div class="card">
+    <h2>Option Chain Snapshot</h2>
+    <div class="row"><span class="muted">Call OI</span><strong id="callOi">—</strong></div>
+    <div class="row"><span class="muted">Put OI</span><strong id="putOi">—</strong></div>
+    <div class="row"><span class="muted">Median bid/ask spread</span><strong id="spread">—</strong></div>
+    <div class="row"><span class="muted">Contracts received</span><strong id="count">—</strong></div>
+  </div>
+
+  <div class="card">
+    <h2>Liquid Option Candidates</h2>
+    <div class="candidate-grid">
+      <div>
+        <h3>Calls</h3><div id="calls"></div>
+      </div>
+      <div>
+        <h3>Puts</h3><div id="puts"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function fmt(n){ return n == null ? '—' : Number(n).toLocaleString('en-IN', {maximumFractionDigits:2}); }
+function renderCandidate(o){
+  return `<div class="candidate">
+    <strong>${fmt(o.strike)} ${o.option_type}</strong>
+    <div class="row"><span class="muted">LTP</span><strong>₹${fmt(o.ltp)}</strong></div>
+    <div class="row"><span class="muted">Delta</span><span>${fmt(o.delta)}</span></div>
+    <div class="row"><span class="muted">IV</span><span>${fmt(o.iv)}%</span></div>
+    <div class="row"><span class="muted">OI change</span><span>${fmt(o.oi_change)}</span></div>
+    <div class="row"><span class="muted">Spread</span><span>₹${fmt(o.spread)}</span></div>
+  </div>`;
+}
+async function loadMarket(){
+  try {
+    const res = await fetch('/market/v2');
+    const data = await res.json();
+    document.getElementById('source').textContent = `Source: ${data.provider}`;
+    document.getElementById('spot').textContent = fmt(data.market.ltp);
+    document.getElementById('atm').textContent = fmt(data.option_chain.atm_strike);
+    document.getElementById('pcr').textContent = fmt(data.option_chain.pcr);
+    document.getElementById('expiry').textContent = data.option_chain.expiry;
+    document.getElementById('callOi').textContent = fmt(data.option_chain.call_oi);
+    document.getElementById('putOi').textContent = fmt(data.option_chain.put_oi);
+    document.getElementById('spread').textContent = data.option_chain.median_bid_ask_spread == null ? '—' : `₹${fmt(data.option_chain.median_bid_ask_spread)}`;
+    document.getElementById('count').textContent = data.option_chain.option_count;
+    document.getElementById('calls').innerHTML = data.candidates.calls.map(renderCandidate).join('') || '<span class="muted">No candidates</span>';
+    document.getElementById('puts').innerHTML = data.candidates.puts.map(renderCandidate).join('') || '<span class="muted">No candidates</span>';
+  } catch(e) {
+    document.getElementById('source').textContent = 'Market data unavailable';
+    console.error(e);
+  }
+}
+loadMarket();
+setInterval(loadMarket, 30000);
+</script>
+</body>
+</html>

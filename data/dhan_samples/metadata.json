@@ -1,0 +1,16 @@
+{
+  "provider": "Dhan",
+  "security_id": "13",
+  "from_date": "2026-09-01",
+  "to_date": "2026-09-05",
+  "interval_minutes": 5,
+  "expiry_flag": "WEEK",
+  "expiry_code": 1,
+  "strike_mode": "ATM",
+  "counts": {
+    "underlying": 300,
+    "call": 308,
+    "put": 308
+  },
+  "contract_identity_note": "Dhan rolling expired-options data is relative to spot. This capture intentionally does not invent a historical expiry date or Delta."
+}
