@@ -35,47 +35,10 @@ Set these in `.env` (never commit the file):
 ```text
 TRADECOMPASS_DATA_PROVIDER=dhan
 DHAN_CLIENT_ID=...
-DHAN_ACCESS_TOKEN=...
+DHAN_PIN=...
+DHAN_TOTP_SECRET=...
 TRADECOMPASS_UNDERLYING_SECURITY_ID=13
 TRADECOMPASS_UNDERLYING_SEGMENT=IDX_I
 TRADECOMPASS_LIVE_INTERVAL=5
 TRADECOMPASS_LIVE_POLL_SECONDS=30
 TRADECOMPASS_LIVE_DB=data/live/tradecompass_live.db
-```
-
-## Run the API
-
-```powershell
-py -m uvicorn api.app:app --reload
-```
-
-Open:
-
-```text
-http://127.0.0.1:8000/dashboard
-```
-
-The dashboard polls every 30 seconds, but the engine only creates a new signal snapshot when a new completed candle appears.
-
-## CLI
-
-One live evaluation:
-
-```powershell
-py -m scripts.run_live_tradecompass --once
-```
-
-Continuous read-only monitoring:
-
-```powershell
-py -m scripts.run_live_tradecompass --poll-seconds 30
-```
-
-## APIs
-
-- `GET /live/v1` — latest completed-candle TradeCompass state.
-- `GET /live/signals?limit=50` — persisted signal history.
-
-## Research status
-
-The four live approaches are now an observation system. Their rules have **not** been statistically validated as profitable. Historical backtesting remains available and can be resumed later without changing this live architecture.

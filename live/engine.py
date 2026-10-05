@@ -132,7 +132,13 @@ class LiveTradeCompassEngine:
         tc_direction = "CALL" if compatibility["signal"] == "BUY_CALL" else "PUT" if compatibility["signal"] == "BUY_PUT" else None
         tc_option = self._option_for(chain, tc_direction)
 
-        risk = build_risk_decision(analysis, tc_option, RiskConfig()) if tc_option else build_risk_decision(analysis, None, RiskConfig())
+        risk_config = RiskConfig.from_env()
+        risk = (
+            build_risk_decision(analysis, tc_option, risk_config)
+            if tc_option
+            else build_risk_decision(analysis, None, risk_config)
+        )
+
         full_signal = compatibility["signal"] if risk.get("approved") else "WAIT"
         full_reason = compatibility["reason"] if full_signal != "WAIT" else (
             "Risk gate rejected the setup" if compatibility["signal"] != "WAIT" else compatibility["reason"]

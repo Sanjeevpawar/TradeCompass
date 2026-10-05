@@ -1,5 +1,28 @@
+from __future__ import annotations
+
+import os
 from dataclasses import dataclass
 from typing import Any
+
+
+def _env_float(name: str, default: float) -> float:
+    value = os.getenv(name)
+    if value is None or value.strip() == "":
+        return default
+    try:
+        return float(value)
+    except ValueError as exc:
+        raise ValueError(f"{name} must be a valid number; received: {value!r}") from exc
+
+
+def _env_int(name: str, default: int) -> int:
+    value = os.getenv(name)
+    if value is None or value.strip() == "":
+        return default
+    try:
+        return int(value)
+    except ValueError as exc:
+        raise ValueError(f"{name} must be a valid integer; received: {value!r}") from exc
 
 
 @dataclass(frozen=True)
@@ -14,6 +37,32 @@ class RiskConfig:
     min_delta: float = 0.45
     max_delta: float = 0.65
     max_spread_pct: float = 2.0
+
+    @classmethod
+    def from_env(cls) -> "RiskConfig":
+        return cls(
+            capital=_env_float("TRADECOMPASS_RISK_CAPITAL", 100_000.0),
+            risk_per_trade_pct=_env_float(
+                "TRADECOMPASS_RISK_PER_TRADE_PCT",
+                1.0,
+            ),
+            max_daily_loss_pct=_env_float(
+                "TRADECOMPASS_MAX_DAILY_LOSS_PCT",
+                2.0,
+            ),
+            max_trades_per_day=_env_int(
+                "TRADECOMPASS_MAX_TRADES_PER_DAY",
+                3,
+            ),
+            min_rr=_env_float(
+                "TRADECOMPASS_MIN_RR",
+                1.5,
+            ),
+            lot_size=_env_int(
+                "TRADECOMPASS_LOT_SIZE",
+                65,
+            ),
+        )
 
     @property
     def risk_amount(self) -> float:
@@ -41,8 +90,6 @@ class RiskDecision:
 
 def _round_price(value: float) -> float:
     return round(float(value), 2)
-
-
 
 
 def calculate_trade_risk(
@@ -91,7 +138,10 @@ def calculate_trade_risk(
 
     underlying_distance = abs(last - underlying_stop)
     if underlying_distance <= 0:
-        return {"valid": False, "reason": "Could not establish a positive underlying stop distance"}
+        return {
+            "valid": False,
+            "reason": "Could not establish a positive underlying stop distance",
+        }
 
     abs_delta = abs(float(delta)) if delta is not None else 0.55
     premium_loss = underlying_distance * abs_delta
@@ -125,7 +175,8 @@ def calculate_trade_risk(
         "actual_risk": actual_risk,
         "reason": (
             "Risk budget cannot support one lot at the calculated stop"
-            if quantity < lot_size else None
+            if quantity < lot_size
+            else None
         ),
     }
 
@@ -151,32 +202,60 @@ def build_risk_decision(
         rejects.append("No valid option candidate")
 
     if rejects:
-        return RiskDecision(False, None, None, None, None, 0, 0, 0.0, None, reasons, warnings, rejects).as_dict()
+        return RiskDecision(
+            False,
+            None,
+            None,
+            None,
+            None,
+            0,
+            0,
+            0.0,
+            None,
+            reasons,
+            warnings,
+            rejects,
+        ).as_dict()
 
     premium = float(option["ltp"])
     if premium <= 0:
         rejects.append("Option premium must be positive")
     if premium > config.max_premium:
-        rejects.append(f"Premium {premium:.2f} exceeds configured maximum {config.max_premium:.2f}")
+        rejects.append(
+            f"Premium {premium:.2f} exceeds configured maximum "
+            f"{config.max_premium:.2f}"
+        )
 
     delta = option.get("delta")
-    if delta is not None and not (config.min_delta <= abs(float(delta)) <= config.max_delta):
-        rejects.append(f"Delta {abs(float(delta)):.2f} is outside configured range {config.min_delta:.2f}-{config.max_delta:.2f}")
+    if delta is not None and not (
+        config.min_delta <= abs(float(delta)) <= config.max_delta
+    ):
+        rejects.append(
+            f"Delta {abs(float(delta)):.2f} is outside configured range "
+            f"{config.min_delta:.2f}-{config.max_delta:.2f}"
+        )
 
     spread = option.get("spread")
     if spread is not None and premium > 0:
         spread_pct = abs(float(spread)) / premium * 100
         if spread_pct > config.max_spread_pct:
-            rejects.append(f"Bid/ask spread {spread_pct:.2f}% exceeds {config.max_spread_pct:.2f}%")
+            rejects.append(
+                f"Bid/ask spread {spread_pct:.2f}% exceeds "
+                f"{config.max_spread_pct:.2f}%"
+            )
 
     direction = option.get("option_type")
     trade_risk = calculate_trade_risk(
-        analysis, premium, delta, direction,
+        analysis,
+        premium,
+        delta,
+        direction,
         capital=config.capital,
         risk_per_trade_pct=config.risk_per_trade_pct,
         min_rr=config.min_rr,
         lot_size=config.lot_size,
     )
+
     if not trade_risk.get("valid") and trade_risk.get("reason"):
         rejects.append(trade_risk["reason"])
 
@@ -192,18 +271,26 @@ def build_risk_decision(
     vwap = analysis.get("indicators", {}).get("vwap")
 
     if rr is not None and rr + 1e-9 < config.min_rr:
-        rejects.append(f"Risk/reward {rr:.2f} is below minimum {config.min_rr:.2f}")
+        rejects.append(
+            f"Risk/reward {rr:.2f} is below minimum {config.min_rr:.2f}"
+        )
 
     if not rejects:
-        reasons.extend([
-            f"Risk budget ₹{risk_budget:.2f}",
-            f"Underlying invalidation near {underlying_stop:.2f}",
-            f"Calculated premium risk ₹{risk_per_unit:.2f} per unit",
-            f"Position size {lots} lot(s) / {quantity} quantity",
-            f"Minimum risk/reward {rr:.2f} achieved",
-        ])
+        reasons.extend(
+            [
+                f"Risk budget ₹{risk_budget:.2f}",
+                f"Underlying invalidation near {underlying_stop:.2f}",
+                f"Calculated premium risk ₹{risk_per_unit:.2f} per unit",
+                f"Position size {lots} lot(s) / {quantity} quantity",
+                f"Minimum risk/reward {rr:.2f} achieved",
+            ]
+        )
+
         if vwap is not None:
-            warnings.append("Premium stop is a proxy; final implementation should use live option repricing")
+            warnings.append(
+                "Premium stop is a proxy; final implementation should use "
+                "live option repricing"
+            )
 
     return RiskDecision(
         approved=not rejects,

@@ -4,6 +4,8 @@
 .env
 .env.*
 !.env.example
+# Dhan authentication cache
+data/live/dhan_token_cache.json
 
 # ============================================================
 # Python

@@ -25,13 +25,14 @@ The next integration step is to build a Dhan historical contract layer that:
 
 This is intentionally conservative to prevent look-ahead bias and false backtest results.
 
-## Environment
+## Authentication
+
+Dhan authentication is handled centrally by `DhanAuthManager` using TOTP.
 
 `.env` should contain:
 
 ```text
-DHAN_ACCESS_TOKEN=your_token
+DHAN_CLIENT_ID=your_client_id
+DHAN_PIN=your_6_digit_pin
+DHAN_TOTP_SECRET=your_totp_secret
 TRADECOMPASS_DHAN_EXPIRY_CODE=1
-```
-
-The user's token must remain local and must never be committed to Git or pasted into chat.
